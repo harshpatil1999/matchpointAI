@@ -46,6 +46,7 @@ export const isAuthenticated = async (
     req.user = user;
     next();
   } catch (error: any) {
+    console.log(error.message);
     res.status(500).json({
       message: "Something went wrong!",
     });
