@@ -1,0 +1,77 @@
+import { useState } from "react";
+import { useAppData } from "../context/AppContext";
+import { Link } from "react-router-dom";
+
+function NavBar() {
+  const [open, setOpen] = useState(false);
+  const { isAuth, user } = useAppData();
+  return (
+    <nav className="fixed top-0 inset-x-0 z-50 flex items-center justify-between px-6 md:px-12 py-4 border-b border-white/6 bg-[#080b14]/80 backdrop-blur-xl">
+      <Link to={"/"} className="flex items-center gap-2.5">
+        <div className="w-8 h-8 rounded-lg bg-linear-to-br from-indigo-500 to-emerald-400 flex caret-indigo-50 justify-center shadow-lg shadow-indigo-500/30 text-2xl">
+          📔
+        </div>
+        <span
+          className="font-bold text-lg tracking-tight"
+          style={{ fontFamily: "'Syne', sans-serif" }}
+        >
+          MatchPoint<span className="text-gradient">AI</span>
+        </span>
+      </Link>
+      <div className="hidden md:flex items-center gap-8 text-sm text-white/50">
+        <Link to={"/analyze"} className="hover:text-white transition-colors">
+          Analyze
+        </Link>
+        <Link to={"/jobMatcher"} className="hover:text-white transition-colors">
+          Job Matcher
+        </Link>
+        <Link
+          to={"/resumeBuilder"}
+          className="hover:text-white transition-colors"
+        >
+          Resume
+        </Link>
+        <Link
+          to={"/interviewPrep"}
+          className="hover:text-white transition-colors"
+        >
+          Interview Prep
+        </Link>
+      </div>
+      <div className="hidden md:flex items-center gap-3">
+        {isAuth ? (
+          <Link
+            to={"/account"}
+            className="flex items-center gap-2 hover:opacity-80 transition-opacity"
+          >
+            <img
+              src="/user.png"
+              alt=""
+              className="w-8 h-8 rounded-full object-cover ring-2 ring-white/10"
+            />
+            <span className="text-sm text-white/70">
+              {user?.name?.split(" ")[0]}
+            </span>
+          </Link>
+        ) : (
+          <>
+            <Link
+              to={"/login"}
+              className="text-sm text-white/50 hover:text-white transition-colors px-4 py-2"
+            >
+              Sign In
+            </Link>
+            <Link
+              to={"/login"}
+              className="btn-primary text-sm px-5 py-2 rounded-lg"
+            >
+              Get Started For Free
+            </Link>
+          </>
+        )}
+      </div>
+    </nav>
+  );
+}
+
+export default NavBar;
