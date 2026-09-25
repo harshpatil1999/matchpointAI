@@ -5,7 +5,7 @@ import axios from "axios";
 import { server } from "../main";
 import toast from "react-hot-toast";
 import { useGoogleLogin } from "@react-oauth/google";
-import { features } from "../utils";
+import { features } from "../utils.ts";
 
 function Login() {
   const [loading, setLoading] = useState(false);

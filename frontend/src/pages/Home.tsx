@@ -1,5 +1,5 @@
 function Home() {
-  return <div className="min-h-screen mt-20">Home</div>;
+  return <div className="bg-page">Home</div>;
 }
 
 export default Home;
