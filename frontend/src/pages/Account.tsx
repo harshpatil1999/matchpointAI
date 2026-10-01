@@ -11,7 +11,7 @@ function Account() {
       <div className="w-full max-w-xl flex flex-col gap-5">
         <div className="glass-card p-6 flex items-center gap-4">
           <img
-            src=""
+            src="/user.png"
             alt=""
             className="w-16 h-16 rounded-2xl object-cover ring-2 ring-white/10"
           />
