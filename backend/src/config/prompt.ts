@@ -1,4 +1,4 @@
-export const ResumeAnalyserPrompt = `
+export const ResumeAnalyzerPrompt = `
 You are an expert ATS (Applicant Tracking System) analyzer. Analyze the following resume
 and provide:
 1. An ATS compatibility score (0-100)
