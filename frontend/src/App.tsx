@@ -10,6 +10,7 @@ import Loading from "./components/Loading";
 import ProtectedRoutes from "./components/ProtectedRoutes";
 import Analyze from "./pages/Analyze";
 import JobMatcher from "./pages/JobMatcher";
+import InterviewPrep from "./pages/InterviewPrep";
 
 function App() {
   const { loading } = useAppData();
@@ -28,6 +29,7 @@ function App() {
           <Route path="/account" element={<Account />} />
           <Route path="/analyze" element={<Analyze />} />
           <Route path="/jobMatcher" element={<JobMatcher />} />
+          <Route path="/interviewPrep" element={<InterviewPrep />} />
         </Route>
       </Routes>
       <Footer />

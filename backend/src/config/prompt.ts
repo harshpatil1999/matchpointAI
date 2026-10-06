@@ -1,4 +1,4 @@
-export const ResumeAnalyzerPrompt = `
+export const AnalyzeResumePrompt = `
 You are an expert ATS (Applicant Tracking System) analyzer. Analyze the following resume
 and provide:
 1. An ATS compatibility score (0-100)
@@ -34,7 +34,7 @@ contact information placement, date formatting, use of action verbs and quantifi
 achievements, section organization and flow.
 `;
 
-export const JobMatcherPrompt = (
+export const MatchJobsPrompt = (
   mode: string,
   skills?: string[],
   experience?: string,
@@ -68,7 +68,7 @@ Respond ONLY in valid JSON with this exact structure:
 }
 `;
 
-export const buildResumePrompt = (mode: string, formData?: any) => `
+export const BuildResumePrompt = (mode: string, formData?: any) => `
 You are an expert resume writer and ATS optimization specialist.
 ${
   mode === "manual"
@@ -130,7 +130,7 @@ ATS Rules to follow:
 - If any field has no data, use empty array or empty string
 `;
 
-export const generateInterviewPrompt = (
+export const GenerateInterviewQuestionsPrompt = (
   round: string,
   mode: string,
   skills?: string,

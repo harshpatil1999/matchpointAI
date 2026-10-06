@@ -24,7 +24,7 @@ function Banner() {
           Join thousands of job seekers using MatchPointAI to get hired faster.
         </p>
         <Link
-          to={"/analyse"}
+          to={"/analyze"}
           className="btn-primary inline-flex items-center gap-2 px-8 py-3.5 rounded-xl text-base font-semibold relative z-10"
         >
           Analyse my resume for free <ArrowRight size={16} />

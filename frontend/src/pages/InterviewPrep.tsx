@@ -53,7 +53,7 @@ function QCard({ q }: { q: Question }) {
   );
 }
 
-const InterviewPrep = () => {
+function InterviewPrep() {
   const [mode, setMode] = useState<"manual" | "resume">("manual");
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
@@ -273,6 +273,6 @@ const InterviewPrep = () => {
       </div>
     </div>
   );
-};
+}
 
 export default InterviewPrep;

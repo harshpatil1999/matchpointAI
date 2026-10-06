@@ -54,7 +54,6 @@ function PlanCTA({
       );
     }
   }
-
   const navigate = useNavigate();
   const [loading, setLoading] = useState(false);
   const handleSubscribe = async () => {
@@ -63,10 +62,9 @@ function PlanCTA({
       return;
     }
   };
-
   return (
     <button
-      className={`mt-auto text-center text-sm font-semibold py-3 rounded-xl transition-all duration-300 ${highlight ? "btn-primary" : "bg-white/6 hover:bg-white/10 border border-white/10 text-white"}`}
+      className={`mt-auto text-center text-sm font-semibold py-3 rounded-xl transition-all duration-300 cursor-pointer ${highlight ? "btn-primary" : "bg-white/6 hover:bg-white/10 border border-white/10 text-white"}`}
       onClick={handleSubscribe}
       disabled={loading}
     >
