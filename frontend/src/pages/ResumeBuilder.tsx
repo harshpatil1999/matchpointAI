@@ -2,8 +2,6 @@ import { useRef, useState } from "react";
 import type { Education, Experience, Project, ResumeData } from "../types";
 import {
   AlertCircle,
-  ChevronDown,
-  ChevronUp,
   Download,
   FileText,
   Loader2,
@@ -11,6 +9,8 @@ import {
   Trash,
   Upload,
 } from "lucide-react";
+import Field from "../components/Field";
+import Section from "../components/Section";
 import { generateResumePDF, toBase64 } from "../utils";
 import axios from "axios";
 import { server } from "../main";
@@ -31,54 +31,7 @@ const blankEdu = (): Education => ({
   gpa: "",
 });
 const blankProj = (): Project => ({ name: "", description: "", link: "" });
-const Field = ({ label, value, onChange, placeholder, textarea }: any) => (
-  <div className="flex flex-col gap-1.5">
-    <label className="text-xs text-white/30 uppercase tracking-widest">
-      {label}
-    </label>
-    {textarea ? (
-      <textarea
-        value={value}
-        onChange={(e) => onChange(e.target.value)}
-        placeholder={placeholder}
-        rows={3}
-        className="input-field resize-node"
-      />
-    ) : (
-      <input
-        value={value}
-        onChange={(e) => onChange(e.target.value)}
-        placeholder={placeholder}
-        className="input-field resize-node"
-      />
-    )}
-  </div>
-);
-const Section = ({
-  title,
-  children,
-}: {
-  title: string;
-  children: React.ReactNode;
-}) => {
-  const [open, setOpen] = useState(true);
-  return (
-    <div className="glass-card overflow-hidden">
-      <button
-        onClick={() => setOpen(!open)}
-        className="w-full flex items-center justify-between px-6 py-4 text-left hover:bg-white/2 transition-colors"
-      >
-        <span className="text-sm font-semibold text-white/80">{title}</span>
-        {open ? (
-          <ChevronUp size={16} className="text-white/30" />
-        ) : (
-          <ChevronDown size={16} className="text-white/30" />
-        )}
-      </button>
-      {open && <div className="px-6 pb-6 flex flex-col gap-4">{children}</div>}
-    </div>
-  );
-};
+
 function ResumeBuilder() {
   const [mode, setMode] = useState<"manual" | "improve">("manual");
   const [file, setFile] = useState<File | null>(null);
@@ -120,7 +73,6 @@ function ResumeBuilder() {
     setError("");
     setFile(f);
   }
-
   async function handleSubmit() {
     setError("");
     setResult(null);
