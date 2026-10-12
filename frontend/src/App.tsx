@@ -11,6 +11,7 @@ import ProtectedRoutes from "./components/ProtectedRoutes";
 import Analyze from "./pages/Analyze";
 import JobMatcher from "./pages/JobMatcher";
 import InterviewPrep from "./pages/InterviewPrep";
+import ResumeBuilder from "./pages/ResumeBuilder";
 
 function App() {
   const { loading } = useAppData();
@@ -30,6 +31,7 @@ function App() {
           <Route path="/analyze" element={<Analyze />} />
           <Route path="/jobMatcher" element={<JobMatcher />} />
           <Route path="/interviewPrep" element={<InterviewPrep />} />
+          <Route path="/resumeBuilder" element={<ResumeBuilder />} />
         </Route>
       </Routes>
       <Footer />
