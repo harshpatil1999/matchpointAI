@@ -3,11 +3,18 @@ import dotenv from "dotenv";
 import connectToDB from "./config/db.js";
 import userRoutes from "./routes/user.routes.js";
 import resumeAnalyzerRoutes from "./routes/resumeAnalyzer.routes.js";
+import paymentRoutes from "./routes/payment.routes.js";
 import cors from "cors";
+import Razorpay from "razorpay";
 
 dotenv.config();
 
 await connectToDB();
+
+export const razorPayInstance = new Razorpay({
+  key_id: process.env.Razorpay_Key!,
+  key_secret: process.env.Razorpay_Secret!,
+});
 
 const app = express();
 
@@ -18,6 +25,7 @@ app.use(express.urlencoded({ extended: true, limit: "10mb" }));
 
 app.use("/api/user", userRoutes);
 app.use("/api/resumeAnalyzer", resumeAnalyzerRoutes);
+app.use("/api/payment", paymentRoutes);
 
 app.listen(process.env.PORT, () => {
   console.log(`Server running on port ${process.env.PORT}`);
